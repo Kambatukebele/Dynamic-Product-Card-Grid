@@ -13,25 +13,28 @@
     />
   </head>
   <body class="font-display">
-    <header>
-      <div>
-        <nav>
-          <!-- Menu navigation -->
-          <ul>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Kids</a></li>
-          </ul>
-        </nav>
+    <!-- Header -->
+    <header
+      class="w-full h-17.5 border bg-black flex justify-center items-center"
+    >
+      <nav
+        class="container mx-auto flex justify-between items-center px-4 lg:px-0"
+      >
+        <!-- Menu navigation -->
+        <ul class="hidden">
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Kids</a></li>
+        </ul>
         <!-- Logo -->
         <div>
-          <a href="#">Velora</a>
+          <a href="#" class="text-4xl uppercase font-bold text-white">Velora</a>
         </div>
         <!-- Search, account, cart -->
-        <div>
+        <div class="flex justify-center items-center gap-4 lg:gap-6">
           <!-- Search -->
-          <div>
-            <span>
+          <div class="justify-center items-center gap-2 hidden lg:flex">
+            <span class="text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -48,11 +51,11 @@
                 <circle cx="11" cy="11" r="8" />
               </svg>
             </span>
-            <span>Search</span>
+            <span class="text-white">Search</span>
           </div>
           <!-- Account -->
           <div>
-            <span>
+            <span class="text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -71,7 +74,62 @@
             </span>
           </div>
           <!-- cart -->
-          <div>
+          <div class="">
+            <span class="text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+              >
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- collection title -->
+    <section class="w-full mt-10 lg:mt-20">
+      <div class="container mx-auto px-4 flex flex-col gap-4 lg:px-0">
+        <!-- Collection title -->
+        <div>
+          <h3 class="text-[40px] font-medium">Shop all</h3>
+        </div>
+        <!-- Collections select -->
+        <div class="w-full flex justify-start items-center gap-4">
+          <button
+            class="border px-8 py-4 rounded-full text-base cursor-pointer"
+          >
+            All
+          </button>
+          <button class="text-base cursor-pointer text-gray-700">Shoes</button>
+          <button class="text-base cursor-pointer text-gray-700">
+            Apparel
+          </button>
+          <button class="text-base cursor-pointer text-gray-700">
+            Accessories
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Hide filter -->
+    <section class="w-full mt-10 lg:mt-20">
+      <div class="container mx-auto px-4 lg:px-0">
+        <button
+          class="border px-8 py-4 rounded-full text-base cursor-pointer flex justify-center items-center gap-2"
+        >
+          <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -82,17 +140,675 @@
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+              class="lucide lucide-sliders-horizontal-icon lucide-sliders-horizontal"
             >
-              <circle cx="8" cy="21" r="1" />
-              <circle cx="19" cy="21" r="1" />
-              <path
-                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
-              />
+              <path d="M10 5H3" />
+              <path d="M12 19H3" />
+              <path d="M14 3v4" />
+              <path d="M16 17v4" />
+              <path d="M21 12h-9" />
+              <path d="M21 19h-5" />
+              <path d="M21 5h-7" />
+              <path d="M8 10v4" />
+              <path d="M8 12H3" />
             </svg>
+          </span>
+          <span> Hide Filters </span>
+        </button>
+      </div>
+    </section>
+    <!-- Filters and product grids -->
+    <section class="w-full mt-8">
+      <div class="container mx-auto px-4 lg:px-0">
+        <div class="w-full lg:flex justify-center items-start">
+          <!-- Filters -->
+          <div class="hidden lg:flex w-1/4">
+            <div class="flex-col gap-8 flex">
+              <!-- Sort by -->
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h6 class="text-xl font-medium">Sort By</h6>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="radio"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Featured</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="radio"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Newes first</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="radio"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Price: low to high</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="radio"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Price: high to low</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Shop for -->
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h6 class="text-xl font-medium">Shop for</h6>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Women</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">men</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Kids</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Product type -->
+              <div class="flex flex-col gap-4">
+                <div>
+                  <h6 class="text-xl font-medium">Product type</h6>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Apparel</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Shoes</p>
+                  </div>
+                  <div class="flex justify-start items-center gap-2">
+                    <input
+                      type="checkbox"
+                      class="block w-6 h-6 rounded-full border"
+                    />
+                    <p class="text-base font-normal">Accessories</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Product grid -->
+          <div class="w-full lg:w-3/4">
+            <div
+              class="grid grid-cols-2 grid-rows-3 gap-2 lg:grid-cols-3 lg:gap-4"
+            >
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Product card -->
+              <div class="col-span-1">
+                <!-- Image -->
+                <div class="w-full">
+                  <img
+                    class="w-full h-full object-center object-cover block"
+                    src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                  />
+                </div>
+                <!-- Product titles and variants -->
+                <div class="py-2 flex flex-col gap-4">
+                  <!-- Variants -->
+                  <div class="flex justify-start items-center gap-2">
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 border-2">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                    <!-- Variants card -->
+                    <div class="w-10 h-10 sm:w-12 sm:h-12">
+                      <img
+                        class="w-full h-full object-center object-cover block"
+                        src="https://images.unsplash.com/photo-1726133731483-d4b8bcabeb43?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <!-- titles and price -->
+                  <div>
+                    <!-- Title -->
+                    <div>
+                      <h6 class="text-xl sm:text-2xl font-medium">
+                        Men's London AT Mind Waterproof
+                      </h6>
+                    </div>
+                    <!-- prices -->
+                    <div>
+                      <p class="text-xl font-normal text-gray-700">$89</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
   </body>
 </html>

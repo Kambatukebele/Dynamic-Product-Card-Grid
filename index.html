@@ -110,35 +110,36 @@
         <div class="w-full flex justify-start items-center gap-4">
           <button
             data-category="all"
-            class="border px-8 py-4 rounded-full text-base cursor-pointer"
+            class="border px-8 py-4 rounded-full text-base cursor-pointer collection-select"
           >
             All
           </button>
           <button
             data-category="shoes"
-            class="text-base cursor-pointer text-gray-700"
+            class="text-base cursor-pointer text-gray-700 collection-select"
           >
             Shoes
           </button>
           <button
-            data-category="apparels"
-            class="text-base cursor-pointer text-gray-700"
+            data-category="apparel"
+            class="text-base cursor-pointer text-gray-700 collection-select"
           >
             Apparels
           </button>
           <button
             data-category="accessories"
-            class="text-base cursor-pointer text-gray-700"
+            class="text-base cursor-pointer text-gray-700 collection-select"
           >
             Accessories
           </button>
         </div>
       </div>
     </section>
-    <!-- Hide filter -->
-    <section class="w-full mt-10 lg:mt-20">
+    <!-- Show and Hide filter -->
+    <section class="w-full mt-10 hidden lg:block lg:mt-20">
       <div class="container mx-auto px-4 lg:px-0">
         <button
+          id="show-hide-filter"
           class="border px-8 py-4 rounded-full text-base cursor-pointer flex justify-center items-center gap-2"
         >
           <span>
@@ -165,16 +166,43 @@
               <path d="M8 12H3" />
             </svg>
           </span>
-          <span> Hide Filters </span>
+          <span id="show-hide-filter-text"> Show Filters </span>
         </button>
       </div>
     </section>
     <!-- Filters and product grids -->
     <section class="w-full mt-8">
       <div class="container mx-auto px-4 lg:px-0">
-        <div class="w-full lg:flex justify-center items-start">
+        <div class="w-full lg:flex justify-between items-start">
           <!-- Filters -->
-          <div class="hidden lg:flex w-1/4">
+          <div
+            id="filters"
+            class="px-4 py-4 w-1/4 fixed -translate-x-175 duration-700 transition-all ease-in-out flex flex-col"
+          >
+            <!-- Close filter -->
+            <div
+              id="close-filter"
+              class="flex justify-end items-center mb-4 cursor-pointer lg:hidden"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-circle-x-icon lucide-circle-x"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m15 9-6 6" />
+                  <path d="m9 9 6 6" />
+                </svg>
+              </span>
+            </div>
             <div class="flex-col gap-8 flex">
               <!-- Sort by -->
               <div class="flex flex-col gap-4">
@@ -186,17 +214,9 @@
                     <input
                       type="radio"
                       name="sort"
-                      value="featured"
-                      class="block w-6 h-6 rounded-full border"
-                    />
-                    <p class="text-base font-normal">Featured</p>
-                  </div>
-                  <div class="flex justify-start items-center gap-2">
-                    <input
-                      type="radio"
-                      name="sort"
                       value="newest_first"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border sort_by"
+                      data-sort="newest"
                     />
                     <p class="text-base font-normal">Newest first</p>
                   </div>
@@ -205,7 +225,8 @@
                       type="radio"
                       name="sort"
                       value="price-low"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border sort_by"
+                      data-sort="price-low"
                     />
                     <p class="text-base font-normal">Price: low to high</p>
                   </div>
@@ -214,7 +235,8 @@
                       type="radio"
                       name="sort"
                       value="price-high"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border sort_by"
+                      data-sort="price-high"
                     />
                     <p class="text-base font-normal">Price: high to low</p>
                   </div>
@@ -228,32 +250,38 @@
                 <div class="flex flex-col gap-2">
                   <div class="flex justify-start items-center gap-2">
                     <input
+                      name="gender"
+                      value="women"
                       type="checkbox"
                       data-gender="women"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border gender"
                     />
                     <p class="text-base font-normal">Women</p>
                   </div>
                   <div class="flex justify-start items-center gap-2">
                     <input
+                      name="gender"
+                      value="men"
                       type="checkbox"
                       data-gender="men"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border gender"
                     />
                     <p class="text-base font-normal">men</p>
                   </div>
                   <div class="flex justify-start items-center gap-2">
                     <input
+                      name="gender"
+                      value="kids"
                       type="checkbox"
                       data-gender="kids"
-                      class="block w-6 h-6 rounded-full border"
+                      class="block w-6 h-6 rounded-full border gender"
                     />
                     <p class="text-base font-normal">Kids</p>
                   </div>
                 </div>
               </div>
               <!-- Product type -->
-              <div class="flex flex-col gap-4">
+              <!-- <div class="flex flex-col gap-4">
                 <div>
                   <h6 class="text-xl font-medium">Product type</h6>
                 </div>
@@ -283,11 +311,14 @@
                     <p class="text-base font-normal">Accessories</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- Product grid -->
-          <div class="w-full lg:w-3/4">
+          <div
+            id="product-grid-wrapper"
+            class="w-full lg:w-full duration-700 transition-all ease-in-out"
+          >
             <div
               id="products-grid"
               class="grid grid-cols-2 grid-rows-3 gap-2 lg:grid-cols-3 lg:gap-4"
@@ -606,10 +637,161 @@
         },
       ];
 
-      const productsGrid = document.querySelector("#products-grid");
+      //Show and hide filters
+      const showAndHideFilters = document.querySelector("#show-hide-filter");
+      //Show and hide filters text
+      const showAndHideFiltersText = document.querySelector(
+        "#show-hide-filter-text"
+      );
+      //product grid wrapper
+      const productGridWrapper = document.querySelector(
+        "#product-grid-wrapper"
+      );
+      //filter div
+      const filtersDiv = document.querySelector("#filters");
+      //close filter
+      const closeFilter = document.querySelector("#close-filter");
+      //collection buttons
+      const collectionButtons = document.querySelectorAll(".collection-select");
+      // Select all the sort_by radio buttons with the class of .sort_by
+      const sortedBy = document.querySelectorAll(".sort_by");
+      // Select all the gender radion button with the calss of .gender
+      const genders = document.querySelectorAll(".gender");
 
-      function renderProducts(prodArgs) {
-        const product = prodArgs.map((product) => {
+      /**
+       * Show and hide filter on larger screen
+       */
+      showAndHideFilters.addEventListener("click", () => {
+        if (filtersDiv.classList.contains("fixed", "-translate-x-175")) {
+          filtersDiv.classList.remove("fixed", "-translate-x-175");
+          productGridWrapper.classList.replace("w-full", "w-3/4");
+          showAndHideFiltersText.innerHTML = "Hide Filters";
+        } else {
+          filtersDiv.classList.add("fixed", "-translate-x-175");
+          showAndHideFiltersText.innerHTML = "Show Filters";
+          productGridWrapper.classList.replace("w-3/4", "w-full");
+        }
+      });
+
+      /**
+       * State: an object that going to old our filtered data
+       */
+      const state = {
+        category: "all",
+        sort: "default",
+        filterGender: [], // because it going to receive one or multiple value
+      };
+
+      /**
+       * Filters function
+       */
+      function filters() {
+        let result = [];
+
+        /**
+         * filter collections
+         */
+        if (state.category !== "all") {
+          result = products.filter((arg) => arg.category === state.category);
+        } else {
+          result = products.map((arg) => arg);
+        }
+
+        /**
+         * filter sort by
+         */
+        switch (state.sort) {
+          case "price-low":
+            result.sort((a, b) => a.price - b.price);
+            break;
+          case "price-high":
+            result.sort((a, b) => b.price - a.price);
+            break;
+          case "newest":
+            result.sort((a, b) => b.id - a.id);
+            break;
+        }
+        /**
+         * filter sort by gender
+         */
+
+        if (state.filterGender.length > 0) {
+          result = products.filter((arg) =>
+            state.filterGender.includes(arg.gender)
+          );
+        } else {
+          result = products.map((arg) => arg);
+        }
+
+        return result;
+      }
+
+      /**
+       * Loop all the collection buttons
+       */
+      collectionButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          /*
+            * This remove the classes: "border", "px-8", "py-4", "rounded-full"
+            in all buttons
+          */
+          collectionButtons.forEach((rem) =>
+            rem.classList.remove("border", "px-8", "py-4", "rounded-full")
+          );
+
+          /*
+            * add the removed classes: "border", "px-8", "py-4", "rounded-full",
+            to the clicked btn
+          */
+          btn.classList.add("border", "px-8", "py-4", "rounded-full");
+
+          /*
+           * change the the sate
+           */
+          state.category = btn.dataset.category;
+
+          renderProducts();
+        });
+      });
+
+      /**
+       * Loop or Select all the sort by button
+       */
+      sortedBy.forEach((sort) => {
+        sort.addEventListener("change", () => {
+          state.sort = sort.dataset.sort;
+          renderProducts();
+        });
+      });
+
+      /**
+       * Loop or Select all the gender by button
+       */
+      genders.forEach((gender) => {
+        gender.addEventListener("change", (e) => {
+          e.preventDefault();
+
+          //Get all the checked checkboxes
+          const value = e.target.value;
+
+          if (e.target.checked) {
+            state.filterGender.push(value);
+          } else {
+            state.filterGender = state.filterGender.filter((r) => r !== value);
+          }
+
+          renderProducts();
+        });
+      });
+
+      /**
+       * Render products
+       */
+      function renderProducts() {
+        const productsGrid = document.querySelector("#products-grid");
+
+        const product = filters().map((product) => {
+          //destructuring product object
           const { id, title, price, image, category, gender, inStock } =
             product;
           return `
@@ -643,7 +825,7 @@
         });
         productsGrid.innerHTML = product.join("");
       }
-      renderProducts(products);
+      renderProducts();
     </script>
   </body>
 </html>

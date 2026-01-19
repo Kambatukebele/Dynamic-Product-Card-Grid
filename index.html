@@ -686,15 +686,13 @@
        * Filters function
        */
       function filters() {
-        let result = [];
+        let result = [...products];
 
         /**
          * filter collections
          */
         if (state.category !== "all") {
-          result = products.filter((arg) => arg.category === state.category);
-        } else {
-          result = products.map((arg) => arg);
+          result = result.filter((arg) => arg.category === state.category);
         }
 
         /**
@@ -711,16 +709,15 @@
             result.sort((a, b) => b.id - a.id);
             break;
         }
+
         /**
          * filter sort by gender
          */
 
         if (state.filterGender.length > 0) {
-          result = products.filter((arg) =>
+          result = result.filter((arg) =>
             state.filterGender.includes(arg.gender)
           );
-        } else {
-          result = products.map((arg) => arg);
         }
 
         return result;
@@ -781,6 +778,7 @@
           }
 
           renderProducts();
+          return state.filterGender;
         });
       });
 
@@ -816,7 +814,9 @@
                     </div>
                     <!-- prices -->
                     <div>
-                      <p class="text-xl font-normal text-gray-700">$${price}</p>
+                      <p class="text-xl font-normal text-gray-700">$${price.toFixed(
+                        2
+                      )}</p>
                     </div>
                   </div>
                 </div>

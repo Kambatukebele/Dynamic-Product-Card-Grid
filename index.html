@@ -137,7 +137,9 @@
     </section>
     <!-- Show and Hide filter -->
     <section class="w-full mt-10 hidden lg:block lg:mt-20">
-      <div class="container mx-auto px-4 lg:px-0">
+      <div
+        class="container mx-auto px-4 lg:px-0 lg:flex justify-between items-center"
+      >
         <button
           id="show-hide-filter"
           class="border px-8 py-4 rounded-full text-base cursor-pointer flex justify-center items-center gap-2"
@@ -168,6 +170,10 @@
           </span>
           <span id="show-hide-filter-text"> Show Filters </span>
         </button>
+        <!-- Product count -->
+        <div class="hidden lg:flex justify-center items-center">
+          <h5 id="product_count" class="text-xl"></h5>
+        </div>
       </div>
     </section>
     <!-- Filters and product grids -->
@@ -643,6 +649,9 @@
       const showAndHideFiltersText = document.querySelector(
         "#show-hide-filter-text"
       );
+      //product count
+      const productCount = document.querySelector("#product_count");
+
       //product grid wrapper
       const productGridWrapper = document.querySelector(
         "#product-grid-wrapper"
@@ -657,6 +666,10 @@
       const sortedBy = document.querySelectorAll(".sort_by");
       // Select all the gender radion button with the calss of .gender
       const genders = document.querySelectorAll(".gender");
+
+      closeFilter.addEventListener("click", () => {
+        filtersDiv.classList.add("fixed", "-translate-x-175");
+      });
 
       /**
        * Show and hide filter on larger screen
@@ -787,20 +800,27 @@
        */
       function renderProducts() {
         const productsGrid = document.querySelector("#products-grid");
-
-        const product = filters().map((product) => {
+        const filtered = filters();
+        // Show product count
+        productCount.textContent = `Showing ${filtered.length} products`;
+        const product = filtered.map((product) => {
           //destructuring product object
           const { id, title, price, image, category, gender, inStock } =
             product;
           return `
             <div class="col-span-1">
                 <!-- Image -->
-                <div class="w-full">
+                <div class="w-full relative">
                   <img
                     class="w-full h-full object-center object-cover block"
                     src="${image}"
                     alt=""
                   />
+                  ${
+                    !inStock
+                      ? '<span class="absolute top-2 left-2 bg-red-500 text-white px-3 py-1 text-sm rounded">Out of Stock</span>'
+                      : ""
+                  }
                 </div>
                 <!-- Product titles and variants -->
                 <div class="py-2 flex flex-col gap-4">
